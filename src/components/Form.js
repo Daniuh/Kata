@@ -24,7 +24,7 @@ const Form = () => {
         body: JSON.stringify(request),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
       })
         .then(response => response.json())
         .then((todo) => {
@@ -32,7 +32,7 @@ const Form = () => {
           setState({ name: "" });
           formRef.current.reset();
         });
-    }
+    };
   
     const onEdit = (event) => {
       event.preventDefault();
@@ -49,7 +49,7 @@ const Form = () => {
         body: JSON.stringify(request),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
       })
         .then(response => response.json())
         .then((todo) => {
@@ -57,18 +57,23 @@ const Form = () => {
           setState({ name: "" });
           formRef.current.reset();
         });
-    }
+    };
   
-    return <form ref={formRef}>
-      <input
-        type="text"
-        name="name"
-        placeholder="¿Qué piensas hacer hoy?"
-        defaultValue={item.name}
-        onChange={(event) => {
-          setState({ ...state, name: event.target.value })
-        }}  ></input>
-      {item.id && <button onClick={onEdit}>Actualizar</button>}
-      {!item.id && <button onClick={onAdd}>Crear</button>}
-    </form>
-  }
+    return (
+        <form ref={formRef}>
+            <input
+                type="text"
+                name="name"
+                placeholder="¿Qué piensas hacer hoy?"
+                defaultValue={item.name}
+                onChange={(event) => {
+                    setState({ ...state, name: event.target.value })
+                }}  
+                ></input>
+                {item.id && <button onClick={onEdit}>Actualizar</button>}
+                {!item.id && <button onClick={onAdd}>Crear</button>}
+        </form>
+    );
+  };
+
+  export default Form;
