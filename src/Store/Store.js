@@ -1,8 +1,9 @@
 import React, {useReducer, createContext} from "react";
 import { reducer } from "../Reducer/Reducer";
 
-const initialState = {
-    todo: { list: [], item: {} }
+export const initialState = {
+    todo: { list: [], item: {} },
+    ListPrincipal: {list:[], item: {} }
   };
 
   const Store = createContext(initialState)

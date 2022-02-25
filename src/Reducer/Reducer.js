@@ -30,6 +30,10 @@ export function reducer(state, action) {
         const todoUp = state.todo.list;
         todoUp.push(action.item);
         return { ...state, todo: {list: todoUp, item: {}} }
+      case "add-ListPrincipal":
+        const todoList = state.ListPrincipal.list;
+        todoList.push(action.item);
+        return { ...state, ListPrincipal: { list: todoList, item: {} } };
       default:
         return state;
     }
