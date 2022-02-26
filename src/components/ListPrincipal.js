@@ -21,7 +21,7 @@ const ListPrincipal = () => {
     };    
   
 
-    fetch(HOST_API + "/grouplist/save", {
+    fetch(HOST_API + "/ListPrincipal/save", {
       method: "POST",
       body: JSON.stringify(request),
       headers: {
@@ -30,7 +30,7 @@ const ListPrincipal = () => {
     })
       .then((response) => response.json())
       .then((todo) => {
-        dispatch({ type: "add-grouplist", item: todo });
+        dispatch({ type: "add-ListPrincipal", item: todo });
         setState({ name: "" });
         formRef.current.reset();
       });

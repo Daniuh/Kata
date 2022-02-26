@@ -11,7 +11,7 @@ const List = () => {
       fetch(HOST_API + "/todos")
         .then(response => response.json())
         .then((list) => {
-          dispatch({ type: "update-list", list })
+          dispatch({ type: "update-list", list });
         })
     }, [dispatch]);
   
@@ -20,9 +20,9 @@ const List = () => {
       fetch(HOST_API + "/" + id + "/todo", {
         method: "DELETE"
       }).then((list) => {
-        dispatch({ type: "delete-item", id })
+        dispatch({ type: "delete-item", id });
       })
-    };
+    }
   
     const onEdit = (todo) => {
       dispatch({ type: "edit-item", item: todo })
@@ -51,27 +51,27 @@ const List = () => {
       textDecoration: 'line-through'
     };
     return <div>
-      <table >
+      <table className="table table-sm">
         <thead>
           <tr>
-            <td>ID</td>
-            <td>Tarea</td>
-            <td>¿Completado?</td>
+            <td colSpan={2} className="td">ID</td>
+            <td colSpan={2} className="td">Tarea</td>
+            <td className="td">¿Completado?</td>
           </tr>
         </thead>
         <tbody>
           {currentList.map((todo) => {
             return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
-              <td>{todo.id}</td>
-              <td>{todo.name}</td>
-              <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-              <td><button onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-              <td><button onClick={() => onEdit(todo)}>Editar</button></td>
-            </tr>
+              <td className="td" colSpan={2}>{todo.id}</td>
+              <td className="td" colSpan={2}>{todo.name}</td>
+              <td className="td"><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
+              <td><button className="button" onClick={() => onDelete(todo.id)}>Eliminar</button></td>
+              <td><button className="button" onClick={() => onEdit(todo)}>Editar</button></td>
+            </tr>;
           })}
         </tbody>
       </table>
-    </div>
-  };
+    </div>;
+  }
 
   export default List;

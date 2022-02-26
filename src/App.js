@@ -6,14 +6,15 @@ import { StoreProvider } from "./Store/Store";
 
 
 function App() {
-  return <StoreProvider>
-    <div className='container'>
-      <h3>Lista</h3>
+  return ( 
+  <StoreProvider>
+    <h1 align="center" >Lista</h1>
+    <div className="containerC">
       <ListPrincipal />
       <Form />
       <List />
     </div>
   </StoreProvider>
+  );
 }
-
 export default App;

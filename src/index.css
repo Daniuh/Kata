@@ -5,14 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://cdn.pixabay.com/photo/2022/02/20/20/09/field-7025238_960_720.jpg");
+  background-color: cyan;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 /*Diseño para el boton*/
 button {
-  background-color:#00d2fc; /* Azul marino claro */
+  background-color:#09ff3e; /* Verde claro */
   border: none;
   padding: 8px;
   border-radius: 10px;
@@ -25,18 +26,31 @@ button {
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-  box-shadow: 0 12px 16px 0 rgba(112, 195, 228, 0.24),0 17px 30px 0 rgba(70, 219, 127, 0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),0 17px 30px 0 rgba(0, 0, 0, 0.19);
 }
 
+
 /*Diseño para el container*/
-.container{
+.containerC{
   display:flex;
   margin: auto;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(5, 179, 92);
+  background-color: rgb(0, 145, 109);
   max-height: 1000px;
   max-width: 1000px;
+  border-radius: 15px;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #000;
+}
+.td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #000;
 }
 
 

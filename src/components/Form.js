@@ -5,7 +5,7 @@ const HOST_API = "http://localhost:8080/api";
 
 const Form = () => {
     const formRef = useRef(null);
-    const { dispatch, state: { todo } } = useContext(Store);
+    const { dispatch, state: { todo }, } = useContext(Store);
     const item = todo.item;
     const [state, setState] = useState(item);
   
@@ -24,7 +24,7 @@ const Form = () => {
         body: JSON.stringify(request),
         headers: {
           'Content-Type': 'application/json'
-        },
+        }
       })
         .then(response => response.json())
         .then((todo) => {
@@ -32,7 +32,7 @@ const Form = () => {
           setState({ name: "" });
           formRef.current.reset();
         });
-    };
+    }
   
     const onEdit = (event) => {
       event.preventDefault();
@@ -49,7 +49,7 @@ const Form = () => {
         body: JSON.stringify(request),
         headers: {
           'Content-Type': 'application/json'
-        },
+        }
       })
         .then(response => response.json())
         .then((todo) => {
@@ -57,7 +57,7 @@ const Form = () => {
           setState({ name: "" });
           formRef.current.reset();
         });
-    };
+    }
   
     return (
         <form ref={formRef}>
@@ -67,7 +67,7 @@ const Form = () => {
                 placeholder="¿Qué piensas hacer hoy?"
                 defaultValue={item.name}
                 onChange={(event) => {
-                    setState({ ...state, name: event.target.value })
+                    setState({ ...state, name: event.target.value });
                 }}  
                 ></input>
                 {item.id && <button onClick={onEdit}>Actualizar</button>}
